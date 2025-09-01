@@ -1,0 +1,96 @@
+vertical: restaurant
+aliases: [cafe, dining, takeaway]
+geo_mode: local
+entities:
+  business_types: ["Restaurant"]
+  services:
+    - "breakfast"
+    - "lunch"
+    - "dinner"
+    - "catering"
+locations_tokens: ["{City}", "{Neighbourhood}"]
+
+keyword_clusters:
+  core:
+    - "best restaurant {City}"
+    - "breakfast near me"
+  long_tail:
+    - "family friendly restaurants in {Neighbourhood}"
+    - "halal restaurants {City}"
+  questions:
+    - "do you have vegan options?"
+    - "do you take bookings?"
+
+templates:
+  title: "{Brand} | {Neighbourhood} {City} Restaurant"
+  meta: "Fresh, seasonal menus in {Neighbourhood}, {City}. Walk-ins welcome. Book a table online."
+  h1: "{Brand} — {Neighbourhood} {City}"
+  slug: "/{city-slug}/{neighbourhood-slug}"
+
+content_brief:
+  sections:
+    - heading: "Menu Highlights"
+      bullets:
+        - "Top dishes"
+        - "Dietary options (vegan, vegetarian, halal)"
+    - heading: "Bookings & Hours"
+      bullets:
+        - "Open hours"
+        - "How to reserve / online booking"
+    - heading: "Events & Catering"
+      bullets:
+        - "Private events"
+        - "Corporate catering"
+    - heading: "Gallery"
+      bullets:
+        - "Dish photos"
+        - "Venue photos"
+    - heading: "FAQs"
+      bullets:
+        - "Parking, accessibility, dietary accommodations"
+
+schema:
+  organization:
+    "@type": "Restaurant"
+    "name": "{Brand}"
+    "url": "{SiteURL}"
+    "telephone": "{Phone}"
+    "servesCuisine": "South African"
+    "address":
+      "@type": "PostalAddress"
+      "addressLocality": "{Neighbourhood}, {City}"
+      "addressRegion": "{Province}"
+      "addressCountry": "ZA"
+
+internal_linking:
+  rules:
+    - from: "service"
+      to: ["menu", "events", "blog", "reviews"]
+      anchor_patterns:
+        - "view our {Service} menu"
+        - "upcoming events and private dining"
+        - "customer reviews"
+    - from: "menu"
+      to: ["service", "booking"]
+      anchor_patterns:
+        - "book a table"
+        - "order online"
+    - from: "events"
+      to: ["service", "contact"]
+      anchor_patterns:
+        - "book our catering"
+
+local_seo:
+  gbp:
+    categories: ["Restaurant", "Cafe", "Takeaway"]
+    attributes: ["Outdoor seating", "Wheelchair accessible", "Accepts reservations"]
+  citations:
+    south_africa: ["Google Business Profile", "Bing Places", "Zomato", "Tripadvisor", "Yellow Pages SA"]
+    regional: ["Local food blogs", "City restaurant guides"]
+
+kpis:
+  - "GSC clicks on location pages"
+  - "Table bookings / reservations"
+  - "Calls from GBP"
+  - "Online orders (if enabled)"
+  - "Local ranking for core keywords"

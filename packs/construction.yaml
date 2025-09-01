@@ -1,0 +1,96 @@
+vertical: construction
+aliases: [builders, general-contractor, renovations]
+geo_mode: local
+entities:
+  business_types: ["HomeAndConstructionBusiness", "GeneralContractor"]
+  services:
+    - "home renovations"
+    - "bathroom remodeling"
+    - "kitchen renovations"
+    - "new builds"
+    - "roof repairs"
+    - "commercial fit-outs"
+locations_tokens: ["{City}", "{Province}", "{Neighbourhood}"]
+
+keyword_clusters:
+  core:
+    - "construction company {City}"
+    - "builders in {City}"
+    - "renovation contractors {City}"
+  long_tail:
+    - "bathroom renovation cost {City}"
+    - "kitchen remodeling contractor near me"
+    - "NHBRC registered builders {City}"
+  questions:
+    - "how long does a kitchen renovation take?"
+    - "do I need plans for a bathroom remodel in {Province}?"
+
+templates:
+  title: "{Service} in {City} | {Brand}"
+  meta: "Trusted {Service} in {City}. NHBRC-registered builders delivering quality workmanship, fair pricing, and on-time delivery. Get a free quote."
+  h1: "{Service} in {City}"
+  slug: "/services/{service-slug}-{city-slug}"
+
+content_brief:
+  sections:
+    - heading: "Overview"
+      bullets:
+        - "Scope of {Service} we offer"
+        - "Who it's for (homeowners, developers, SMEs)"
+    - heading: "Process & Timeline"
+      bullets:
+        - "Site assessment & quote"
+        - "Plans & approvals (NHBRC/municipal)"
+        - "Build phases & inspections"
+    - heading: "Pricing"
+      bullets:
+        - "What affects cost"
+        - "Itemized quote example"
+    - heading: "Gallery / Case Studies"
+      bullets:
+        - "Before/after"
+        - "Materials & finishes used"
+    - heading: "FAQs"
+      bullets:
+        - "Permits, guarantees, payment schedule"
+
+schema:
+  organization:
+    "@type": "HomeAndConstructionBusiness"
+    "name": "{Brand}"
+    "url": "{SiteURL}"
+    "logo": "{LogoURL}"
+    "areaServed": "{City}, {Province}, South Africa"
+    "address":
+      "@type": "PostalAddress"
+      "addressLocality": "{City}"
+      "addressRegion": "{Province}"
+      "addressCountry": "ZA"
+    "telephone": "{Phone}"
+  service:
+    "@type": "Service"
+    "serviceType": "{Service}"
+    "areaServed": "{City}"
+  faq:
+    "@type": "FAQPage"
+    "mainEntity":
+      - "@type": "Question"
+        "name": "Do I need municipal approval for {Service}?"
+        "acceptedAnswer": {"@type": "Answer", "text": "In {City}, most structural changes require approval. We assist with plans & submissions."}
+
+internal_linking:
+  rules:
+    - from: "service"
+      to: ["project", "testimonial", "faq"]
+      anchor_patterns: ["see our recent {Service} project", "client feedback", "common {Service} questions"]
+
+local_seo:
+  gbp:
+    categories: ["General contractor", "Construction company", "Bathroom remodeler", "Kitchen remodeler"]
+  citations:
+    south_africa: ["Google Business Profile", "Bing Places", "Yellow Pages SA", "Hotfrog", "Snupit"]
+
+kpis:
+  - "GSC clicks on service pages"
+  - "Calls & direction requests from GBP"
+  - "Form submissions from service CTAs"

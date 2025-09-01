@@ -1,0 +1,98 @@
+vertical: law
+aliases: [attorneys, law-firm, lawyers, legal-services]
+geo_mode: local
+entities:
+  business_types: ["LegalService", "Attorney"]
+  services:
+    - "family law"
+    - "conveyancing"
+    - "criminal defence"
+    - "labour law"
+    - "intellectual property"
+    - "personal injury"
+locations_tokens: ["{City}", "{Province}"]
+
+keyword_clusters:
+  core:
+    - "{Service} lawyer {City}"
+    - "attorneys in {City}"
+  long_tail:
+    - "best {Service} attorney {City}"
+    - "fixed fee {Service} {City}"
+  questions:
+    - "how much does a {Service} consultation cost in {City}?"
+    - "what documents do I bring for {Service}?"
+
+templates:
+  title: "{Service} Lawyers in {City} | {Brand}"
+  meta: "Experienced {Service} attorneys in {City}, {Province}. Transparent fees, timely advice, and client-first strategy. Book a consultation."
+  h1: "{Service} Lawyers in {City}"
+  slug: "/services/{service-slug}-{city-slug}"
+
+content_brief:
+  sections:
+    - heading: "Matters We Handle"
+      bullets:
+        - "Scope of {Service}"
+        - "Who we represent"
+        - "Outcomes pursued"
+    - heading: "Process"
+      bullets:
+        - "Initial consult"
+        - "Strategy"
+        - "Filing/Representation"
+    - heading: "Fees"
+      bullets:
+        - "Hourly vs fixed"
+        - "Retainers"
+        - "Fee transparency"
+    - heading: "Case Studies"
+      bullets:
+        - "Anonymised wins"
+        - "Client testimonials"
+    - heading: "FAQs"
+      bullets:
+        - "Timelines"
+        - "Evidence"
+        - "Next steps"
+
+schema:
+  organization:
+    "@type": "LegalService"
+    "name": "{Brand}"
+    "url": "{SiteURL}"
+    "telephone": "{Phone}"
+    "areaServed": "{City}, {Province}, South Africa"
+  service:
+    "@type": "Service"
+    "serviceType": "{Service}"
+    "serviceOutput": "Legal advice and representation"
+
+internal_linking:
+  rules:
+    - from: "service"
+      to: ["case-study", "blog", "faq", "contact"]
+      anchor_patterns:
+        - "read our {Service} case study"
+        - "related articles on {Service}"
+        - "common {Service} questions"
+    - from: "case-study"
+      to: ["service", "testimonial"]
+      anchor_patterns:
+        - "related service"
+        - "client testimonial"
+
+local_seo:
+  gbp:
+    categories: ["Law firm", "Attorney", "Legal services"]
+    attributes: ["Appointments required", "Languages: English"]
+  citations:
+    south_africa: ["Google Business Profile", "Bing Places", "Legalwise directory", "Yellow Pages SA"]
+    global: ["Avvo", "FindLaw"]
+
+kpis:
+  - "GSC clicks on service pages"
+  - "Bookings / consultation requests"
+  - "Calls from GBP"
+  - "Form submissions (contact/consultation)"
+  - "Local ranking for core keywords"
