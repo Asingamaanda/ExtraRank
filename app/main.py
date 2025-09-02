@@ -7,6 +7,7 @@ import re
 import unicodedata
 from typing import Dict
 from pydantic import BaseModel
+from string import Template
 
 app = FastAPI(title="Extraordinary Media — SEO + GEO Automation")
 app.include_router(router)
@@ -81,8 +82,7 @@ def _slugify(s: str) -> str:
 def load_pack(name: str) -> dict:
     p = PACKS_DIR / f"{name}.yaml"
     if not p.exists():
-        raise HTTPException(status_code=404, detail=f"Pack '{name}' not found in {PACKS_DIR}")
-    # parse YAML
+        raise HTTPException(status_code=404, detail=f
     try:
         data = yaml.safe_load(p.read_text(encoding="utf-8"))
     except Exception as e:
