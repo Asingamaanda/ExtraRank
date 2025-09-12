@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+    environment:
+      - SNAPSHOT_DB=/app/data/snapshots.db
+      - SNAPSHOT_API_KEY=${SNAPSHOT_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

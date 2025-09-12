@@ -1,0 +1,22 @@
+[Unit]
+Description=ExtraRank daily data collection
+After=network.target
+
+# Edit these values to match your host:
+#  - Replace YOUR_USER with the system user that should run the job (e.g. asi)
+#  - Set PROJECT_ROOT to the absolute path of the ExtraRank project on the host
+[Service]
+Type=oneshot
+User=YOUR_USER
+# Set PROJECT_ROOT here (edit to the real absolute path on the host)
+Environment=PROJECT_ROOT=/path/to/extrarank
+
+# WorkingDirectory and ExecStart use PROJECT_ROOT so you only need to update one place.
+WorkingDirectory=${PROJECT_ROOT}
+ExecStart=${PROJECT_ROOT}/run_daily.sh
+
+# Optional: uncomment to load env vars from a file (must be KEY=VALUE lines)
+# EnvironmentFile=${PROJECT_ROOT}/.env
+
+[Install]
+WantedBy=multi-user.target
